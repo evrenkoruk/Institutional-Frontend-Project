@@ -1,0 +1,86 @@
+@import "../../mixins";
+
+.filters {
+  @include makeFlex(center, center, wrap);
+  width: 100%;
+  padding: 16px;
+
+  @include mdResponsiveSize() {
+    width: auto;
+    padding: 0;
+    @include makeFlex(flex-end, center, wrap);
+  }
+
+  &-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    @include mdResponsiveSize() {
+      display: none !important;
+      text-transform: uppercase;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #000;
+      border-bottom: 0;
+      vertical-align: middle;
+      margin-top: -5px;
+    }
+
+    &.--visible {
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid black;
+        border-top: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  &-item {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    &.--active {
+      color: #7c141b;
+    }
+
+    @include mdResponsiveSize() {
+      @include makeFlex(center, center, center, 1);
+      margin-top: 0;
+      width: auto;
+
+      &::after {
+        content: "/";
+        font-size: 48px;
+        margin-right: 8px;
+        font-weight: 200;
+        margin-left: 8px;
+        color: #000;
+      }
+
+      &:last-child {
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@import "./../mixins";
+
+.map {
+  width: 100%;
+
+  @include mdResponsiveSize() {
+    width: 50%;
+    padding: 100px 0 0 0;
+  }
+}

@@ -1,0 +1,157 @@
+@import "../mixins";
+.hero {
+  padding: 16px;
+  position: relative;
+  &-item {
+    z-index: 2;
+    position: relative;
+    &-caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: auto;
+      color: #000;
+      text-align: left;
+      width: 100%;
+      padding-right: 0;
+      opacity: 1;
+      z-index: 4;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 16px;
+      text-transform: uppercase;
+      @include mdResponsiveSize() {
+        justify-content: flex-end;
+        width: 73%;
+        padding: 20px;
+      }
+      &-detail {
+        flex: 0 0 100%;
+        z-index: 3;
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 0;
+        @include mdResponsiveSize() {
+          flex: 0 0 44%;
+          padding-left: 10px;
+        }
+        &-nav {
+          color: #7c151c;
+          font-size: 13px;
+          @include mdResponsiveSize() {
+            font-size: 16px;
+          }
+          b {
+            font-size: 20px;
+            line-height: 83%;
+            font-weight: bold;
+            @include mdResponsiveSize() {
+              font-size: 36px;
+            }
+          }
+        }
+        &-title {
+          margin-top: 8px;
+          margin-bottom: 4px;
+          font-size: 24px;
+          font-weight: 700;
+          @include mdResponsiveSize() {
+            margin: 16px 0;
+            font-size: 45px;
+            font-weight: 700;
+          }
+        }
+        &-desc {
+          font-size: 12px;
+          display: none;
+          text-transform: capitalize;
+          @include mdResponsiveSize() {
+            font-size: 16px;
+            padding-bottom: 16px;
+            display: block;
+            text-transform: capitalize;
+          }
+        }
+      }
+      &-button {
+        z-index: 3;
+        position: relative;
+        flex: 0 0 33%;
+        display: none;
+        @include mdResponsiveSize() {
+          @include makeFlex(center, center, nowrap);
+        }
+      }
+      &-bg {
+        background-color: #fff;
+        opacity: 0.65;
+        min-width: 100%;
+        min-height: auto;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: auto;
+        height: 88%;
+        z-index: 2;
+        @include mdResponsiveSize() {
+          height: 100%;
+          width: 115%;
+        }
+      }
+    }
+  }
+  .tns-outer {
+    position: relative;
+    .tns-controls {
+      button[aria-controls] {
+        @include makeFlex(center, center, nowrap);
+        border: 0;
+        color: #000;
+        background-color: #fff;
+        width: 25px;
+        height: 50px;
+        padding: 0;
+        color: transparent;
+        position: absolute;
+        z-index: 5;
+        opacity: 0.7;
+        transform: translate(0, -50%);
+        @include mdResponsiveSize() {
+          width: 4%;
+          height: 130px;
+          opacity: 1;
+        }
+        &[data-controls="prev"] {
+          left: 0;
+          top: 50%;
+          &::before {
+            content: "";
+            background-image: url(@/assets/img/slider/prev.png);
+            display: inline-block;
+            width: 20px;
+            height: 31px;
+            text-indent: 0;
+            margin-right: 40px;
+            background-repeat: no-repeat;
+          }
+        }
+        &[data-controls="next"] {
+          right: 0;
+          top: 50%;
+          &::before {
+            content: "";
+            background-image: url(@/assets/img/slider/next.png);
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 20px;
+            height: 31px;
+            margin-left: 40px;
+            text-indent: 0;
+          }
+        }
+      }
+    }
+  }
+}

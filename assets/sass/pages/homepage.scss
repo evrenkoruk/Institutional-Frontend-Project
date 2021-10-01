@@ -1,0 +1,94 @@
+@import "../mixins";
+
+$projects: ".projects";
+
+.page {
+  &.--homepage {
+    #{$projects} {
+      background-image: url(@/assets/img/projects/proje_bg.png);
+      margin-bottom: 70px;
+      &-header {
+        width: 100%;
+        @include makeFlex(center, center, wrap);
+        padding: 16px;
+        margin-bottom: 50px;
+        @include mdResponsiveSize() {
+          @include makeFlex(space-between, flex-start, nowrap);
+          @include likeContainer();
+          padding: 72px 0 0 0;
+        }
+
+        #{$projects}-title {
+          font-size: 36px;
+          text-align: center;
+          margin-bottom: 16px;
+          width: 100%;
+          text-transform: uppercase;
+
+          @include mdResponsiveSize() {
+            text-align: left;
+            font-size: 45px;
+            width: auto;
+            margin-bottom: 0;
+            text-transform: uppercase;
+
+            &.title-has-border {
+              &::after {
+                width: 22%;
+              }
+            }
+          }
+        }
+
+        .filters {
+          padding: 0;
+        }
+      }
+    }
+
+    .referances {
+      margin-top: 75px;
+      margin-bottom: 75px;
+      width: 100%;
+      @include makeFlex(flex-start, flex-start, wrap);
+      padding: 16px;
+
+      @include mdResponsiveSize() {
+        @include likeContainer();
+        @include makeFlex(flex-start, flex-start, nowrap);
+        padding: 0;
+        margin-top: 130px;
+        margin-bottom: 130px;
+      }
+
+      &-list {
+        @include makeFlex(flex-start, center, wrap);
+        width: 100%;
+        padding-right: 0;
+
+        @include mdResponsiveSize() {
+          padding-right: 108px;
+        }
+      }
+
+      &-items {
+        width: 100%;
+        margin-bottom: 16px;
+        padding-right: 0;
+
+        @include mdResponsiveSize() {
+          width: 25%;
+          margin-bottom: 0;
+          padding-right: 16px;
+        }
+      }
+
+      &-button {
+        @include mdResponsiveSize() {
+          width: 50%;
+          @include makeFlex(center, center, nowrap);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import "../../mixins";
+
+.about-us {
+  $aboutUs: &;
+  width: 100%;
+  background-color: #f6f7f8;
+  padding: 16px;
+  //margin-top: 20px;
+
+  @include mdResponsiveSize() {
+    padding: 0 0 58px 0;
+  }
+
+  &-container {
+    @include makeFlex(center, center, wrap);
+    @include mdResponsiveSize() {
+      @include makeFlex(space-between, flex-start, nowrap);
+      @include likeContainer();
+      padding: 108px 0 72px 0;
+    }
+
+    #{$aboutUs}-col {
+      width: 100%;
+
+      @include mdResponsiveSize() {
+        width: auto;
+        padding-right: 72px;
+      }
+
+      #{$aboutUs}-tag {
+        color: #7c141b;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+      }
+
+      #{$aboutUs}-title {
+        font-weight: bold;
+        font-size: 45px;
+        margin-bottom: 24px;
+      }
+
+      #{$aboutUs}-desc {
+        margin-bottom: 50px;
+      }
+    }
+
+    #{$aboutUs}-img {
+      width: 100%;
+      height: auto;
+      margin-top: 50px;
+
+      @include mdResponsiveSize() {
+        width: 571px;
+        height: auto;
+      }
+    }
+  }
+}

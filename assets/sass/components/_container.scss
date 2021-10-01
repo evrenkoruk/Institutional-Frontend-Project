@@ -1,0 +1,22 @@
+@import "../mixins";
+
+.container {
+  @include makeFlex(center, center, wrap);
+  width: 100%;
+  padding: 16px;
+
+  &.flex-start {
+    @include makeFlex(flex-start, flex-start, wrap);
+  }
+
+  &.flex-md-between {
+    @include mdResponsiveSize() {
+      @include makeFlex(space-between, center, nowrap);
+    }
+  }
+
+  @include mdResponsiveSize() {
+    padding: 0;
+    @include likeContainer();
+  }
+}

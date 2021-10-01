@@ -1,0 +1,49 @@
+@import "./../../mixins";
+
+.contact-us {
+  &-title {
+    font-weight: bold;
+    font-size: 36px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+    text-transform: uppercase;
+    @include mdResponsiveSize() {
+      margin-top: 64px;
+      margin-bottom: 0;
+      font-size: 45px;
+      text-transform: uppercase;
+    }
+  }
+
+  &-form {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 32px;
+
+    @include mdResponsiveSize() {
+      width: 50%;
+      padding: 72px 72px 32px 0;
+    }
+
+    &-field {
+      margin-bottom: 10px;
+
+      label {
+        display: block;
+        color: #7c141b;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      input,
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        font-size: 16px;
+        padding: 8px 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ultavlar",
+  "version": "1.0.0",
+  "description": "Ultavlar",
+  "main": "nuxt.config.js",
+  "repository": "",
+  "author": "Evren Koruk <ekoruk@syconx.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  },
+  "private": true,
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.4",
+    "lodash": "^4.17.21",
+    "node-sass": "^5.0.0",
+    "nuxt": "^2.15.4",
+    "nuxt-gmaps": "^1.2.10",
+    "nuxt-i18n": "^6.26.0",
+    "nuxt-start": "^2.15.6",
+    "sass-loader": "^10.1.1",
+    "vue-cool-lightbox": "^2.7.4",
+    "vue-tiny-slider": "^0.1.39"
+  }
+}

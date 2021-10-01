@@ -1,0 +1,112 @@
+@import "../../mixins";
+
+.project-list {
+  @include makeFlex(center, center, wrap);
+  width: 100%;
+  padding: 16px;
+
+  @include likeContainer();
+
+  @include mdResponsiveSize() {
+    padding: 72px 0 0 0;
+
+    @include makeFlex(flex-start, center, wrap);
+  }
+
+  &-item {
+    width: 100%;
+    position: relative;
+    margin-bottom: 32px;
+    margin-right: 0;
+    $item: &;
+    transition: all 0.5s ease-in-out;
+
+    @include mdResponsiveSize() {
+      width: 30%;
+      margin-right: 36px;
+      transition: all 0.5s ease-in-out;
+      &:nth-child(3n) {
+        margin-right: 0;
+      }
+    }
+
+    &-details {
+      cursor: pointer;
+      $details: &;
+      position: relative;
+      img {
+        @include mdResponsiveSize() {
+          max-height: 300px !important;
+          height: 300px;
+          min-height: 300px !important;
+        }
+      }
+
+      &-vertical-border {
+        display: none;
+        width: 100%;
+        height: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        border-color: #fff;
+        margin: 20px 0 0 0;
+      }
+
+      &-horizontal-border {
+        @extend #{$details}-vertical-border;
+        margin: 0 0 0 20px;
+        height: 100%;
+        width: 0;
+      }
+
+      &-name {
+        display: none;
+        color: white;
+        position: absolute;
+        z-index: 3;
+        margin: 30px;
+        font-size: 30px;
+        text-transform: uppercase;
+      }
+    }
+
+    &-name {
+      margin-top: 16px;
+      font-size: 30px;
+      font-weight: bold;
+      visibility: visible;
+      @include mdResponsiveSize() {
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+    }
+
+    @include mdResponsiveSize() {
+      width: 31%;
+      margin-right: 42px;
+
+      &:hover {
+        #{$item}-details {
+          &-vertical-border {
+            display: block;
+          }
+
+          &-img {
+            filter: brightness(0.5);
+          }
+
+          &-name {
+            display: block;
+          }
+        }
+
+        #{$item}-name {
+          visibility: none;
+          color: transparent;
+        }
+      }
+    }
+  }
+}

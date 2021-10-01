@@ -1,0 +1,22 @@
+@import "./../mixins";
+
+.banner {
+  @include makeFlex();
+  padding: 16px;
+  width: 100%;
+  background-image: url(@/assets/img/banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 130px;
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  //margin-bottom: 32px;
+  text-transform: uppercase;
+
+  @include mdResponsiveSize() {
+    //margin-bottom: 64px;
+    min-height: 204px;
+    font-size: 45px;
+  }
+}

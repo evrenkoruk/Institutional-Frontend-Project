@@ -1,0 +1,54 @@
+@import "../../mixins";
+
+.founders {
+  @include makeFlex(flex-start, center, wrap);
+  padding: 16px;
+  width: 100%;
+
+  @include mdResponsiveSize() {
+    @include likeContainer();
+    padding: 0;
+  }
+
+  &-title {
+    width: 100%;
+    margin: 36px 0;
+    font-weight: 700;
+    font-size: 45px;
+  }
+
+  .founders-list {
+    @include makeFlex(flex-start, flex-start, wrap);
+    width: 100%;
+
+    .founder {
+      margin-bottom: 48px;
+      width: 100%;
+
+      @include mdResponsiveSize() {
+        width: 30%;
+        margin-right: 58px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &-name {
+        font-size: 20px;
+        margin-top: 24px;
+        font-weight: bold;
+        padding-bottom: 9px;
+        margin-bottom: 9px;
+        border-bottom: 1px solid #7c141b;
+        text-decoration: uppercase;
+
+        @include mdResponsiveSize() {
+          padding-bottom: 18px;
+          margin-bottom: 18px;
+          text-decoration: uppercase;
+        }
+      }
+    }
+  }
+}

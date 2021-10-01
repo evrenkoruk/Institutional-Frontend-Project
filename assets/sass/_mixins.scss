@@ -1,0 +1,53 @@
+@mixin makeFlex(
+  $justifyContent: center,
+  $alignItems: center,
+  $flexWrap: nowrap,
+  $isImportant: 0
+) {
+  @if $isImportant != 0 {
+    display: flex !important;
+    justify-content: $justifyContent !important;
+    align-items: $alignItems !important;
+    flex-wrap: $flexWrap !important;
+  } @else {
+    display: flex;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-wrap: $flexWrap;
+  }
+}
+
+@mixin responsive($minWidth, $maxWidth: 0) {
+  @if $maxWidth != 0 {
+    @media only screen and (min-width: $minWidth) and (max-width: $maxWidth) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $minWidth) {
+      @content;
+    }
+  }
+}
+
+@mixin smResponsiveSize() {
+  @include responsive(320px, 1199px) {
+    @content;
+  }
+}
+
+@mixin mdResponsiveSize() {
+  @include responsive(1200px) {
+    @content;
+  }
+}
+
+@mixin lgResponsiveSize() {
+  @include responsive(1920px) {
+    @content;
+  }
+}
+
+@mixin likeContainer() {
+  max-width: 1200px;
+  margin: 0 auto;
+}

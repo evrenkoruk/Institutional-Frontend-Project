@@ -1,0 +1,164 @@
+@import "../mixins";
+
+.reference {
+  $reference: &;
+  width: 100%;
+
+  @include mdResponsiveSize() {
+    padding-top: 60px;
+    padding-bottom: 72px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0 16px;
+
+    @include mdResponsiveSize() {
+      @include likeContainer();
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    #{$reference}-tag {
+      color: #7c141b;
+      font-weight: bold;
+      font-size: 16px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+
+      @include mdResponsiveSize() {
+        color: #7c141b;
+        font-weight: bold;
+        font-size: 20px;
+        margin-bottom: 12px;
+        width: 100%;
+        text-transform: uppercase;
+      }
+    }
+    #{$reference}-title {
+      font-weight: bold;
+      font-size: 36px;
+      margin-bottom: 24px;
+      align-items: center;
+      text-transform: uppercase;
+      @include mdResponsiveSize() {
+        font-weight: 700;
+        font-size: 45px;
+      }
+    }
+  }
+
+  &-list {
+    @include makeFlex(flex-start, center, wrap);
+    width: 100%;
+    display: block;
+    padding: 32px 16px;
+    &-item {
+      width: 100%;
+      padding: 32px 16px;
+      margin-bottom: 16px;
+      background-color: #e0e1e2;
+    }
+    b {
+      flex-wrap: wrap;
+      line-height: 27px;
+    }
+
+    &.--mobile {
+      @include mdResponsiveSize() {
+        display: none;
+      }
+    }
+
+    &.--desktop {
+      display: none;
+      @include mdResponsiveSize() {
+        display: block;
+        #{$reference}-search {
+          @include makeFlex(flex-start, center, nowrap);
+          width: 100%;
+
+          @include mdResponsiveSize() {
+            @include makeFlex(flex-end, center, nowrap);
+            @include likeContainer();
+            width: 100%;
+            padding: 0;
+            margin-top: -106px;
+          }
+          input {
+            width: 220px;
+            height: 50px;
+            @include mdResponsiveSize() {
+              border: 0;
+              padding: 5px;
+              width: 220px;
+              height: 50px;
+              justify-content: flex-end;
+              box-shadow: 3px 3px 4px #e0e1e2;
+            }
+          }
+        }
+        @include likeContainer();
+        .vue-table {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-wrap: wrap;
+          margin-bottom: 40px;
+          margin-top: 50px;
+          table {
+            width: 100%;
+          }
+
+          th {
+            background-color: #e0e1e2;
+            height: 74px;
+            text-align: justify;
+            a {
+              cursor: pointer;
+              color: #000;
+              font-size: 20px;
+              padding-left: 5px;
+              font-weight: bold;
+            }
+          }
+
+          td {
+            font-size: 16px;
+            line-height: 3.5;
+            border-bottom: 1px solid #cbcccc;
+          }
+        }
+      }
+
+      &-container {
+        flex: 0 0 auto;
+
+        @include makeFlex(flex-start, center, wrap);
+      }
+
+      &-header {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        @include makeFlex(space-between, center, nowrap);
+      }
+
+      &-items {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        overflow-x: scroll;
+        @include makeFlex(space-between, center, nowrap);
+      }
+    }
+  }
+}
